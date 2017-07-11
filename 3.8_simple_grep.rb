@@ -1,3 +1,4 @@
+#从文件中读取指定模式的内容并输出
 pattern = Regexp.new(ARGV[0])
 filename = ARGV[1]
 
