@@ -2,6 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, :only => [ :show, :edit, :update, :destroy]
 
   def index
+    if params[:keyword]
+      @events = Event.where( [ "name like ?", "%#{params[:keyword]}%" ] )
+    else
+      @events = Event.all
+    end
+
     @events = Event.page(params[:page]).per(5)
 
     respond_to do |format|
@@ -56,6 +62,7 @@ class EventsController < ApplicationController
   def dashboard
     @event = Event.find(params[:id])
   end
+
 
   private
 
