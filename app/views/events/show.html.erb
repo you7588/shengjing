@@ -1,3 +1,5 @@
+<p>Category: <%= @event.category.try(:name) %></p>
+
 <%= @event.name %>
 <%= simple_format(@event.description) %>
 
