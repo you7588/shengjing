@@ -53,6 +53,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def dashboard
+    @event = Event.find(params[:id])
+  end
+
   private
 
   def event_params

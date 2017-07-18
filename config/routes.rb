@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :events do
+    member do
+      get :dashboard
+    end
     resources :attendees, :controller => 'event_attendees'
     resource :location, :controller => 'event_locations'
   end
